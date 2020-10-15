@@ -1,0 +1,84 @@
+Assignment:
+
+Item#1: 
+The given Function below (sumofnumbersA, sumofnumbersB) computes the sum of  1-n.
+
+Function A:
+ public static long sumofnumbersA(long n){
+	
+        int sum = 0;
+        for(int i = 1; i <= n; i++){
+            sum +=i;
+        }
+        return sum;
+    }
+
+Function B:
+   public static long sumofnumbersB(long n){
+        return n * (n + 1) / 2;
+   }
+
+Plot the output in a table using the inputs below.
+Note: you can measure ellapsed time using System.nanoTime()
+
+Example:
+long start_time = System.nanoTime();
+sumofnumbersA(1000);
+long time_elapsed = System.nanoTime() - start_time;
+
+
+
+Table for function A
+     input size                time(nano seconds)
+1. n = 1000L        ------>      14900
+2. n = 10000L       ------>      175500
+3. n = 100000L      ------>      1219800
+4. n = 1000000L     ------>      2335200 
+5. n = 10000000L    ------>      7257000
+6. n = 100000000L   ------>      52171200
+7. n = 1000000000L  ------>      502963300
+
+Table for function B
+     input size                time(nano seconds)
+1. n = 1000L        ------>      1600
+2. n = 10000L       ------>      1700
+3. n = 100000L      ------>      1700
+4. n = 1000000L     ------>      1700 
+5. n = 10000000L    ------>      2200
+6. n = 100000000L   ------>      2000
+7. n = 1000000000L  ------>      1800
+
+note: L -> tell the java compiler to use "long" instead of "int"
+
+Question: What have you observed between the two functions?
+
+Function B's time is much lesser compared to function A which makes function B faster than Function A.
+
+
+Item#2:
+Your favorite past time is watching movies. You are planning to watch "Jason Bourne" series over the weekend.
+The series consist of 4 movies(Bourne Identity, Bourne Supremacy, Bourne Ultimatum, Bourne Legacy) each roughly 7GB (super HD) in size.
+You have a decision to make, either download the movie or purchase in a local movie store and have it delivered to your house.
+
+Option 1 parameters:
+Total download size: 7x4 = ~28GB
+Internet speed: 0.2Mbps (Standard speed in PHL)
+Total estimated time to download (days) = 13-14 days
+
+
+Option 2 parameters:
+Confirmation of order: 24hours but not more than 2 days
+Delivery duration: 2 days
+Total estimated delivery time =  worst case=6 days   best-case= 4 days
+
+
+Question 1: Which option is better? explain.
+
+Option 2 is better because even at the worst case scenario option 2 still has lesser waiting days compared to option 1.
+
+Question 2: You already watched Jason Bourne series and now you want to watch "Star Wars" Series. Which option would you prefer?
+
+I would prefer option two because the total time for downloading all star wars movie which consists of 12 movies equates to 41 days with a internet speed of 0.2 mbps assuming every movie's size is 7gb which is much longer compared to the worst case scenario of option 2 which is 6 days.
+
+Place your assignment in a .txt file following the format below:
+Big-Oh_Assignment_<Lastname>.txt

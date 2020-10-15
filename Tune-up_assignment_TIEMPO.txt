@@ -1,0 +1,266 @@
+/*Problem A.
+=================================================================================*/
+import java.util.Scanner;
+
+public class Smallest
+{
+    public static void main(String [] args)
+    {
+        Scanner in = new Scanner(System.in);
+        String one;
+        String two;
+        String three;
+        int smallest;
+        
+        
+      //Using do while and .replaceAll to check if there are other characters than digit.
+
+      do{
+        System.out.print("Enter first number: ");
+        one = in.next();
+         if(one.replaceAll("[0-9]", "").length()>0)
+         {
+         System.out.println("-------------------------------------");
+         System.out.println("Output: Error! please input an integer!");
+         System.out.println("-------------------------------------\n");
+         }
+        }while(one.replaceAll("[0-9]", "").length()>0);
+        
+              
+      do{
+        System.out.print("Enter second number: ");
+        two = in.next();
+            if(two.replaceAll("[0-9]", "").length()>0)
+             {
+         System.out.println("-------------------------------------");
+         System.out.println("Output: Error! please input an integer!");
+         System.out.println("-------------------------------------\n");
+              }
+        }while(two.replaceAll("[0-9]", "").length()>0);
+        
+       do{
+        System.out.print("Enter third number: ");
+        three = in.next();
+          if(three.replaceAll("[0-9]", "").length()>0)
+          {
+         System.out.println("-------------------------------------");
+         System.out.println("Output: Error! please input an integer!");
+         System.out.println("-------------------------------------\n");
+          }
+         }while(three.replaceAll("[0-9]", "").length()>0);
+         
+         //Converting String variables to Int for comparison
+          int x = Integer.parseInt(one);
+          int y = Integer.parseInt(two);
+          int z = Integer.parseInt(three);
+          
+         //Getting the smallest number using nested ternary operator.
+         
+         smallest = x < y ? (x < z ? x : z) : (y < z ? y : z); 
+         
+         //Output display.
+         System.out.println("-------------------------------------");
+         System.out.println("Output: "+smallest);
+    }
+}
+/*
+==============================================================================================
+Problem B
+=================================================================================================*/
+
+import java.util.Scanner;
+public class Days
+{
+   public static void main(String[] args)
+   {
+      Scanner in = new Scanner(System.in);
+      String number;
+      String day=null;
+      boolean isDay=false;
+    
+  
+      //Using do while loop in sanitizing user input with .replaceAll() and conditioning.
+             int num=0;
+   do{
+            
+        do {
+           num = 0;
+           System.out.print("Enter an integer: ");
+           number = in.next();
+               
+             if(number.replaceAll("[0-9-]", "").length()>0){
+               System.out.println("\n\n-------------------------------------\n");
+               System.out.println("Output: Error! please input an integer!");
+               System.out.println("-------------------------------------\n\n\n");
+               isDay=false;
+            }
+               if(number.replaceAll("[^-]", "").length()>0 && number.replaceAll("[^0-9]", "").length()==0){
+               System.out.println("\n\n-------------------------------------\n");
+               System.out.println("Output: Error! please input an integer!");
+               System.out.println("-------------------------------------\n\n\n");
+               isDay=false;
+            }
+         
+           if(number.replaceAll("[^0-9]", "").length()>0 && number.replaceAll("[^-]", "").length()>0)
+            {
+                System.out.println("-------------------------------------\n");
+                System.out.println("Output: Invalid input. Please enter a value from 0-6");
+               System.out.println("-------------------------------------\n");
+              isDay=false;
+            }
+         
+         
+           if(number.replaceAll("[0-9]", "").length()==0)
+           {
+            isDay=true;
+           }
+        }while(isDay==false);
+        num = Integer.parseInt(number);
+        
+        if(num>6 || num<0)
+        {
+        System.out.println("-------------------------------------\n");
+        System.out.println("Output: Invalid input. Please enter a value from 0-6");
+        System.out.println("-------------------------------------\n");
+        }
+
+      }while(num>6 || num<0);
+      //Translating input number to String using If conditioning.
+      
+      if(num==0)
+      {
+         day = "Sunday";
+      }
+        if(num==1)
+      {
+         day = "Monday";
+      }
+        if(num==2)
+      {
+         day = "Tuesday";
+      }
+        if(num==3)
+      {
+         day = "Wednesday";
+      }
+        if(num==4)
+      {
+         day = "Thursday";
+      }
+        if(num==5)
+      {
+         day = "Friday";
+      }
+        if(num==6)
+      {
+         day = "Saturday";
+      }
+      
+      //Output.
+      System.out.println("-------------------------------------\n");
+      System.out.println("Output: "+day);
+
+         }
+      
+   
+}
+/*
+=====================================================================================================
+Problem C
+=====================================================================================================
+*/
+import java.util.Scanner;
+public class Parking
+{
+   public static void main(String [] args)
+   {
+      Scanner in = new Scanner(System.in);
+      String vehicle;
+      String hours;
+      boolean yesvehicle= false;
+      double vehicleRate=0;
+      double hourTemp;
+     
+      String v=null;
+      //Using do while looping in Sanitizing user input and using if conditioning.
+      do{
+      vehicle = null;
+      System.out.println("-------------------------------------");
+      System.out.println("PARKING PROGRAM");
+      System.out.println("-------------------------------------");
+      System.out.println("RATES:");
+      System.out.println("-------------------------------------");
+      System.out.println("[C] - Car - PHP20.00/hr\n[B] - Bus - PHP35.00/hr\n[T] - Truck - PHP50.00/hr");
+      System.out.println("-------------------------------------\n\n");
+      System.out.print("Enter Vehicle Type: ");
+      vehicle = in.next().toLowerCase();
+      
+    
+ 
+      if(!((vehicle.charAt(0)=='c') ||  (vehicle.charAt(0)=='b') || (vehicle.charAt(0)=='t')))
+      {
+      System.out.println("\n\n-------------------------------------\n");
+      System.out.println("Error Input! Please try again.");
+      System.out.println("-------------------------------------\n\n\n");
+      }
+      if((vehicle.charAt(0)=='c') ||  (vehicle.charAt(0)=='b') || (vehicle.charAt(0)=='t'))
+      {
+       yesvehicle = true;  
+      }
+      }while(yesvehicle==false);
+      
+      
+      //Using Try and Catch in sanitizing number of hours input.
+
+        while (true) {
+             System.out.print("Parking duration(hrs): ");
+             hours = in.next();
+          hourTemp = 0;
+            try {
+                hourTemp = Double.parseDouble(hours);
+                break;
+            } catch (NumberFormatException ne) {
+               System.out.println("\n\n-------------------------------------\n");
+               System.out.println("Error Input! Please input a number.");
+               System.out.println("-------------------------------------\n\n\n");
+            }
+        }
+        
+        //Setting the vehicle rates and Vehicle string basing on the type of vehicle entered.
+        if(vehicle.charAt(0)=='c')
+        {
+         v = "Car";
+         vehicleRate=20;
+        }
+        else if(vehicle.charAt(0)=='b')
+        {
+         v = "Bus";
+         vehicleRate=35;
+        }
+        else if(vehicle.charAt(0)=='t')
+        {
+         v = "Truck";
+         vehicleRate=50;
+        }
+        
+         double hoursInteger = hourTemp;
+        //Getting the total fee using double as variable.
+        double total = hoursInteger*vehicleRate; 
+        //Converting Hours double to int for subtraction to be used in displaying minutes.
+        int hourInt = (int)hoursInteger;
+        //Getting the minutes.
+        int minutes = (int)((hoursInteger-hourInt)*60);
+        
+        //Output.
+        System.out.println("\n\nPARKING PROGRAM");
+        System.out.println("-------------------------------------");
+        System.out.println("Vehicle Type: "+v);
+        System.out.println("Parking duration(hrs): "+hours+" | "+ hourInt +" Hour/s and "+minutes+" minute/s");
+        //Displaying the total fee as currency format.
+        System.out.printf("Total Parking Charge: PHP%.2f",total);
+        System.out.println();
+        System.out.println("-------------------------------------");
+      
+      
+   }
+}

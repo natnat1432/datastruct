@@ -1,0 +1,102 @@
+1. What is Abstract Data Type?
+    - An abstract data type (ADT) is a mathematical model for data types. An abstract data type is defined by its behavior(semantics) from the point of view of a user, of the data, specifically in terms of possible values, possible operations on data of this type, and the behavior of these operations. This mathematical model contrasts with data structures, which are concrete representations of data, and are the point of view of an implementer, not a user.
+
+2. Define the following ADT, give some of its commonly used operations, pros and cons:
+    a. List- a list or sequence is an abstract data type that represents a countable number of ordered values, where the same value may occur more than once. An instance of a list is a computer representation of the mathematical concept of a tuple or finite sequence; the (potentially) infinite analog of a list is a stream. Lists are a basic example of containers, as they contain other values. If the same value occurs multiple times, each occurrence is considered a distinct item.
+        Operations:
+		-size(), this function is used to get number of elements present into the list
+		-insert(x), this function is used to insert one element into the list	
+		-remove(x), this function is used to remove given element from the list
+         Pros:
+               -Insertion and Deletion - Insertion and deletion of nodes are really easier. Unlike array here we don’t have to shift elements after insertion or deletion of an element. 
+			In linked list we just have to update the address present in next pointer of a node.	
+               -No Memory Wastage - As size of linked list can increase or decrease at run time so there is no memory wastage. In case of array there is lot of memory wastage, 
+			like if we declare an array of size 10 and store only 6 elements in it then space of 4 elements are wasted. There is no such problem in linked list as memory is allocated only when required.
+               -Implementation - Data structures such as stack and queues can be easily implemented using linked list.
+         Cons:
+               -Memory Usage - More memory is required to store elements in linked list as compared to array. Because in linked list each node contains a pointer and 
+			it requires extra memory for itself.
+               -Traversal - Elements or nodes traversal is difficult in linked list. We can not randomly access any element as we do in array by index.
+			 For example if we want to access a node at position n then we have to traverse all the nodes before it. So, time required to access a node is large.
+               -Reverse Traversing - In linked list reverse traversing is really difficult. In case of doubly linked list its easier but extra memory is required for back pointer hence
+			 wastage of memory.
+
+b. Queue- is an abstract data structure, somewhat similar to Stacks. Unlike stacks, a queue is open at both its ends. One end is always used to insert data (enqueue) and the other is used to remove data (dequeue). Queue follows First-In-First-Out methodology, i.e., the data item stored first will be accessed first. and the other is used to remove data (dequeue). Queue follows First-In-First-Out methodology, i.e., the data item stored first will be accessed first.
+        Operations:
+		-isFull(), This is used to check whether queue is full or not.
+		-isEmpry(), This is used to check whether queue is empty or not.
+		-insert(x), This is used to add x into the queue at the rear end.
+         Pros:
+                -Multiple Clients -  Queues are helpful when multiple consumers share a particular process. For example, 
+			a website might only have so much space to allow consumers to download a particular file. With a stack, some consumer might have to wait 
+			much longer to download the file than the newest consumers. Queues are also useful when the client does not necessarily receive the data at the same time 
+			the data is sent.
+                -Circular Queues - Queues can lead to empty spaces in the data structure, since a bigger array is needed than the total number of pieces of data.
+			 However, programmers can use circular queues to use the empty space. Programmers can set up time outs where jobs wait until the entry reaches the data queue.
+                -Speed -Data queues are a fast method of inter-process communication. Data queues free up jobs from performing some work, which can lead to a better response time 
+			and an overall improvement in system performance. Data queues serve as the fastest form of asynchronous communication between two different tasks, since there is less overhead than with database files and data areas.
+         Cons:
+                -Queue is not readily searchable. You have to start from the end and might have to maintain another queue. So if you have some data, which later on you would want to be searchable.
+                -Adding or deleting elements from the middle of the queue is complex.
+                -Many of the queues are implemented using pointers, so in that respect, many programmers have the notion that they are difficult to create, maintain, and manipulate.
+c. Stack- is a linear data structure which follows a particular order in which the operations are performed. The order may be LIFO(Last In First Out) or FILO(First In Last Out).
+        Operations:
+		-isFull(), This is used to check whether stack is full or not
+		-isEmpry(), This is used to check whether stack is empty or not
+		-push(x), This is used to push x into the stack
+         Pros:
+                - Easy to started
+                - Less Hardware Requirement
+                - Cross- Platform
+         Cons:
+                - Not flexible
+                - Lack of scalability
+                - Unable to Copy & Paste
+d. Tree- A tree is a nonlinear hierarchical data structure that consists of nodes connected by edges.	
+        Operations:
+                -  Insert − Inserts an element in a tree/create a tree.
+                -  Search − Searches an element in a tree.
+                -  Preorder Traversal − Traverses a tree in a pre-order manner.
+         Pros:
+                -  Saves memory by storing fewer pointers.
+                -  Can easily turn the array into a binary tree.
+                -  Faster search time.
+         Cons:
+                -  Has a fixed size, which makes it harder to grow and, depending on the size of the array, can take a long time to grow.
+                -  The memory is wasted in an unbalanced tree.
+                -  If the tree is unbalanced in the array, parts of the memory that the array is
+stored in don’t get used. 
+   
+e. Map- is a type of fast key lookup data structure that offers a flexible means of indexing into its individual elements. Unlike most array data structures in the MATLAB® software that only allow access to the elements by means of integer indices, the indices for a Map can be nearly any scalar numeric value or a character vector.
+        Operations:
+                -  Add or insert: add a new {\displaystyle (key,value)}(key,value) pair to the collection, mapping the new key to its new value. 
+		   The arguments to this operation are the key and the value.	
+                -  Reassign: replace the value in one of the {\displaystyle (key,value)}(key,value) pairs that are already in the collection, mapping an existing key to a new value.
+		   As with an insertion, the arguments to this operation are the key and the value.
+                -  Remove or delete: remove a {\displaystyle (key,value)}(key,value) pair from the collection, unmapping a given key from its value. 
+		   The argument to this operation is the key.
+         Pros:
+		- Map stores items in key order. So you can iterate over all the items in a map, from begin to end, in sorted key order.
+		  You obviously can do this with an array/vector, 
+		- A map also lets you lookup on any type that defines a < operator or specifies to the map through a template argument how to compare keys. 
+		  So you can have reasonable lookup on maps of strings -> another value.
+		- A map lets you maintain reasonable lookup performance (O(log(n)))
+         Cons:
+      		- however as was said earlier, a map lets you have any arbitrary key type with any arbitrary ordering defined.
+      		- You obviously can't have an array that has an item stored only in the 0th slot and the 2^32 spot without wasting tons of memory.
+     		- To insert into the middle of an array/vector you have to shift all the items over to the left. For a dynamic array and a vector you have to resize the vector, 
+		  which will cause you to copy the entire array to new memory.
+f. Graph- is a pictorial representation of a set of objects where some pairs of objects are connected by links. The interconnected objects are represented by points termed as vertices, and the links that connect the vertices are called edges.
+        Operations:
+		- Vertex − Each node of the graph is represented as a vertex.                 
+		- Path − Path represents a sequence of edges between the two vertices. 
+	    	- Adjacency − Two node or vertices are adjacent if they are connected to each other through an edge.
+         Pros:
+
+               - Graphs allow you to store information about the relationship between the different components (aka nodes).
+               - Graphs allow you to store these information in a way that makes it easier for you to come up/implement the different algorithms  to solve problems from checking whether the nodes are connected to finding the shortest paths.
+               - By using graphs, you can create any social network site. As persons represent to vertices while connection between them is edge
+         Cons:
+         	  - the main disadvantage is its large memory complexity.
+                - it’s worth noting that we can use an updated version of adjacency lists. Instead of storing all the neighboring nodes in a linked list,
+                - Data Misinterpretation	
